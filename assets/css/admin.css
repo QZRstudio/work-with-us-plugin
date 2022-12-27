@@ -1,0 +1,159 @@
+/* Oh nice... no scss? Ok. No problem! */
+
+.wrap {
+	max-width: 960px;
+}
+.wp-editor-wrap,
+.description  {
+	margin: 1rem 0;
+}
+
+.status {
+	height: 1.5rem;
+	width: 3rem;
+	position: relative;
+}
+
+.status label,
+.status .label {
+	position: absolute;
+	inset: 0;
+}
+
+/* Custom checkbox */
+input[type="checkbox"] {
+	display: none;
+}
+
+input[type="checkbox"] + .label {
+	display: inline-block;
+	position: absolute;
+	cursor: pointer;
+	inset: 0;
+	background: #c0c0c0;
+	border-radius: 10px;
+	transition: all 0.3s;
+}
+
+input[type="checkbox"] + .label:before {
+	content: '';
+	display: inline-block;
+	border-radius: 100%;
+	background: #fff;
+	height: 1rem;
+	width: 1rem;
+	left: 0.2rem;
+	right: calc(100% - 1.2rem);
+	top: 50%;
+	transform: translateY(-50%);
+	position: absolute;
+	transition: all 0.3s;
+}
+
+input[type="checkbox"]:checked + .label:before {
+	right: 0.2rem;
+	left: calc(100% - 1.2rem);
+}
+
+input[type="checkbox"]:checked + .label {
+	background: rgb(0, 115, 255);
+}
+
+/* General  */
+.disabled {
+	pointer-events: none;
+}
+p {
+	line-height: 1.4;
+	margin: 0;
+}
+select,
+textarea {
+	width: 100%;
+}
+
+
+/* CTA Editor */
+.cta-editor-wrapper-heading {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.cta-editor-wrapper-options {
+	display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+    height: 1.5rem;
+    align-items: center;
+}
+.cta-editor {
+	transition: opacity 0.3s, margin 0.3s;
+	opacity: 0;
+	margin: 0;
+	pointer-events: none;
+	max-height: 0;
+}
+
+.cta-editor.active {
+	opacity: 1;
+	pointer-events: all;
+	max-height: 1500px;
+}
+
+.no-tags-selected {
+	margin: 1rem 0;
+	font-style: italic;
+}
+
+.cta-settings {
+	max-height: 0;
+	background: #f9f9f9;
+	padding: 0 1rem;
+	transition: all 0.6s;
+	overflow: hidden;
+}
+
+.cta-settings.active {
+	padding: 1rem;
+    padding-top: 0.5rem;
+	max-height: 1500px;
+}
+
+div[data-option="settings"] {
+	cursor: pointer;
+}
+
+.current-status {
+	padding: 0.5rem;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    background: #f9f9f9f9;
+    border-radius: 10px;
+    margin-left: 10px;
+	transition: all 0.3s;
+}
+
+.current-status:before {
+	content: 'Disattivato';
+}
+
+.current-status.active {
+	background: #feda32;
+	color: black;
+}
+
+.current-status.active:before {
+	content: 'Attivo';
+}
+
+/* FIXES */
+.wp-editor-tools {
+	display: flex;
+	justify-content: space-between;
+	width: 100%;
+}
+
+.wp-editor-tools:after {
+	display: none !important;
+}
